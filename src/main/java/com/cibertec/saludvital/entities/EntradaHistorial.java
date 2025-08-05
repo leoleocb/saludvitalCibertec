@@ -2,27 +2,25 @@ package com.cibertec.saludvital.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Receta {
+public class EntradaHistorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String medicamento;
-    private String dosis;
-    private String frecuencia;
-    private LocalDate fechaEmision;
-    private LocalDate fechaCaducidad;
+    private LocalDateTime fechaHora;
+    private String diagnostico;
+    private String tratamiento;
 
     @ManyToOne
-    @JoinColumn(name = "paciente_id")
-    private Paciente paciente;
+    @JoinColumn(name = "expediente_id")
+    private ExpedienteMedico expediente;
 
     @ManyToOne
     @JoinColumn(name = "medico_id")

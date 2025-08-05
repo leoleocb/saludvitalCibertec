@@ -9,15 +9,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Medico {
+public class ExpedienteMedico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
-    private String especialidad;
-    private String horarioAtencion; // Ej. "L-V 8:00-17:00"
+    @OneToOne
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
 
-    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
-    private List<Cita> citas;
+    @OneToMany(mappedBy = "expediente", cascade = CascadeType.ALL)
+    private List<EntradaHistorial> historial;
 }
