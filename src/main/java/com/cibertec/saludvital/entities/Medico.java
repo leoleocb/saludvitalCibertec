@@ -1,5 +1,6 @@
 package com.cibertec.saludvital.entities;
 
+import com.cibertec.saludvital.enums.Enums;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -15,8 +16,12 @@ public class Medico {
     private Long id;
 
     private String nombre;
-    private String especialidad;
-    private String horarioAtencion; // Ej. "L-V 8:00-17:00"
+
+    @Enumerated(EnumType.STRING)
+    private Enums.EspecialidadMedico especialidad;
+
+    @Enumerated(EnumType.STRING)
+    private Enums.HorarioAtencion horarioAtencion;
 
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Cita> citas;

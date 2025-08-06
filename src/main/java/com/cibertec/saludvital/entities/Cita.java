@@ -1,5 +1,6 @@
 package com.cibertec.saludvital.entities;
 
+import com.cibertec.saludvital.enums.Enums;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -27,5 +28,7 @@ public class Cita {
     private Medico medico;
 
     private String consultorio;
-    private String estado; // Programada, Cancelada, Realizada
+
+    @Enumerated(EnumType.STRING)
+    private Enums.EstadoCita estado;
 }

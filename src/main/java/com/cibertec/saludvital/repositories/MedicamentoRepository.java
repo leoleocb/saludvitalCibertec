@@ -1,6 +1,6 @@
 package com.cibertec.saludvital.repositories;
 
-import com.cibertec.saludvital.entities.*;
+import com.cibertec.saludvital.entities.Medicamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

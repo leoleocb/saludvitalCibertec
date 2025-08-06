@@ -1,5 +1,6 @@
 package com.cibertec.saludvital.entities;
 
+import com.cibertec.saludvital.enums.Enums;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -16,7 +17,10 @@ public class Receta {
 
     private String medicamento;
     private String dosis;
-    private String frecuencia;
+
+    @Enumerated(EnumType.STRING)
+    private Enums.FrecuenciaMedicamento frecuencia;
+
     private LocalDate fechaEmision;
     private LocalDate fechaCaducidad;
 
